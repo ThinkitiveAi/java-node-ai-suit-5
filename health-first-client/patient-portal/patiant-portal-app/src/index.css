@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-healthcare-50 to-primary-50 min-h-screen;
+  }
+}
+
+@layer components {
+  .smoky-cursor {
+    @apply relative overflow-hidden;
+  }
+  
+  .smoky-cursor::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 transition-opacity duration-300;
+    pointer-events: none;
+  }
+  
+  .smoky-cursor:hover::before {
+    @apply opacity-100;
+  }
+  
+  .auth-card {
+    @apply bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 p-8 max-w-md w-full mx-auto;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 transition-all duration-200 bg-white/90 backdrop-blur-sm;
+  }
+  
+  .btn-primary {
+    @apply w-full bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold py-3 px-6 rounded-lg hover:from-primary-700 hover:to-primary-800 transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply w-full bg-white/80 backdrop-blur-sm text-primary-700 font-semibold py-3 px-6 rounded-lg border border-primary-200 hover:bg-primary-50 transition-all duration-200 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+  
+  .hover\:bg-primary-25:hover {
+    @apply bg-primary-50/25;
+  }
+}
