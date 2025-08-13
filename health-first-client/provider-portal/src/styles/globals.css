@@ -1,0 +1,410 @@
+/* Import Healthcare Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	/* Legacy CSS Variables (maintain compatibility) */
+	--color-primary: #0F76FF;
+	--color-teal: #14B8A6;
+	--color-success: #10B981;
+	--color-danger: #EF4444;
+	--color-bg: #F8FAFC;
+	--color-fg: #0F172A;
+	
+	/* Healthcare Theme Variables */
+	--healthcare-primary: #2A5C8D;
+	--healthcare-secondary: #4CAF50;
+	--healthcare-emergency: #E53E3E;
+	--healthcare-background: #F8F9FA;
+	--healthcare-card: #FFFFFF;
+	--healthcare-surface: #F1F5F9;
+	--healthcare-text-primary: #1A202C;
+	--healthcare-text-secondary: #4A5568;
+	--healthcare-text-muted: #718096;
+	--healthcare-text-inverse: #FFFFFF;
+	
+	/* Healthcare Status Colors */
+	--healthcare-status-normal: #4CAF50;
+	--healthcare-status-warning: #F59E0B;
+	--healthcare-status-critical: #E53E3E;
+	--healthcare-status-pending: #8B5CF6;
+	--healthcare-status-info: #3B82F6;
+	
+	/* Healthcare Accent Colors */
+	--healthcare-accent-teal: #319795;
+	--healthcare-accent-mint: #38B2AC;
+	--healthcare-accent-lavender: #9F7AEA;
+	--healthcare-accent-coral: #FF6B6B;
+	
+	/* Healthcare Typography */
+	--font-heading: 'Roboto', system-ui, sans-serif;
+	--font-body: 'Open Sans', system-ui, sans-serif;
+	--font-mono: 'SFMono-Regular', 'Consolas', 'Monaco', 'Liberation Mono', 'Lucida Console', monospace;
+	
+	/* Healthcare Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-2xl: 3rem;
+	--spacing-3xl: 4rem;
+}
+
+html, body, #root {
+	height: 100%;
+}
+
+body {
+	background-color: var(--healthcare-background);
+	color: var(--healthcare-text-primary);
+	font-family: var(--font-body);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.5;
+}
+
+/* Enhanced accessibility and healthcare compliance */
+button, input, textarea, select {
+	min-height: 44px;
+	border-radius: 8px;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+	outline: 2px solid var(--healthcare-primary);
+	outline-offset: 2px;
+}
+
+/* Healthcare-specific focus styles */
+.healthcare-focus:focus-visible {
+	outline: 2px solid var(--healthcare-primary);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px rgba(42, 92, 141, 0.1);
+}
+
+.emergency-focus:focus-visible {
+	outline: 2px solid var(--healthcare-emergency);
+	outline-offset: 2px;
+	box-shadow: 0 0 0 4px rgba(229, 62, 62, 0.1);
+}
+
+/* Glass morphism effects */
+.glass {
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+	background: rgba(15, 23, 42, 0.7);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Healthcare glass morphism */
+.glass-healthcare {
+	background: rgba(248, 249, 250, 0.8);
+	backdrop-filter: blur(20px);
+	border: 1px solid rgba(42, 92, 141, 0.1);
+}
+
+.glass-medical {
+	background: rgba(255, 255, 255, 0.9);
+	backdrop-filter: blur(16px);
+	border: 1px solid rgba(42, 92, 141, 0.2);
+	box-shadow: 0 4px 12px rgba(42, 92, 141, 0.1);
+}
+
+/* Animation utilities */
+@keyframes float {
+	0%, 100% { transform: translateY(0px); }
+	50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+	0%, 100% { box-shadow: 0 0 20px rgba(15, 118, 255, 0.3); }
+	50% { box-shadow: 0 0 40px rgba(15, 118, 255, 0.6); }
+}
+
+@keyframes gradient-shift {
+	0%, 100% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+	0% { transform: translateX(-100%); }
+	100% { transform: translateX(100%); }
+}
+
+/* Healthcare-specific animations */
+@keyframes emergencyPulse {
+	0%, 100% {
+		box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7);
+		transform: scale(1);
+	}
+	50% {
+		box-shadow: 0 0 0 10px rgba(229, 62, 62, 0);
+		transform: scale(1.05);
+	}
+}
+
+@keyframes vitalPulse {
+	0%, 100% {
+		box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+	}
+	50% {
+		box-shadow: 0 0 0 8px rgba(76, 175, 80, 0);
+	}
+}
+
+@keyframes heartbeat {
+	0%, 50%, 100% {
+		transform: scale(1);
+	}
+	25%, 75% {
+		transform: scale(1.1);
+	}
+}
+
+@keyframes statusBlink {
+	0%, 50% { opacity: 1; }
+	51%, 100% { opacity: 0.3; }
+}
+
+.animate-float {
+	animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+	animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+	background-size: 200% 200%;
+	animation: gradient-shift 3s ease infinite;
+}
+
+.animate-emergency-pulse {
+	animation: emergencyPulse 1.5s ease-in-out infinite;
+}
+
+.animate-vital-pulse {
+	animation: vitalPulse 2s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+	animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.animate-status-blink {
+	animation: statusBlink 2s ease-in-out infinite;
+}
+
+.shimmer-effect {
+	position: relative;
+	overflow: hidden;
+}
+
+.shimmer-effect::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.4),
+		transparent
+	);
+	transform: translateX(-100%);
+	animation: shimmer 2s infinite;
+}
+
+/* Healthcare shimmer effect */
+.shimmer-healthcare::before {
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(42, 92, 141, 0.2),
+		transparent
+	);
+}
+
+/* Enhanced scroll behavior */
+* {
+	scroll-behavior: smooth;
+}
+
+/* Custom scrollbar with healthcare theme */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--healthcare-surface);
+}
+
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to bottom, var(--healthcare-primary), var(--healthcare-accent-teal));
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(to bottom, #1e4a6b, #2a7877);
+}
+
+/* Healthcare-specific utility classes */
+.status-indicator {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.status-normal {
+	background-color: var(--healthcare-status-normal);
+	animation: vitalPulse 2s ease-in-out infinite;
+}
+
+.status-warning {
+	background-color: var(--healthcare-status-warning);
+	animation: statusBlink 1.5s ease-in-out infinite;
+}
+
+.status-critical {
+	background-color: var(--healthcare-status-critical);
+	animation: emergencyPulse 1s ease-in-out infinite;
+}
+
+.status-pending {
+	background-color: var(--healthcare-status-pending);
+}
+
+/* Medical data typography */
+.medical-data {
+	font-family: var(--font-mono);
+	font-weight: 600;
+	letter-spacing: 0.05em;
+}
+
+.vital-reading {
+	font-family: var(--font-mono);
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: var(--healthcare-primary);
+}
+
+.lab-value {
+	font-family: var(--font-mono);
+	font-size: 1.125rem;
+	font-weight: 600;
+	color: var(--healthcare-text-primary);
+}
+
+/* Healthcare form elements */
+.healthcare-input {
+	border: 2px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 12px 16px;
+	font-family: var(--font-body);
+	transition: all 0.2s ease-in-out;
+}
+
+.healthcare-input:focus {
+	border-color: var(--healthcare-primary);
+	box-shadow: 0 0 0 3px rgba(42, 92, 141, 0.1);
+	outline: none;
+}
+
+.healthcare-input.error {
+	border-color: var(--healthcare-emergency);
+}
+
+.healthcare-input.error:focus {
+	box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+/* Emergency and critical alerts */
+.alert-emergency {
+	background-color: rgba(229, 62, 62, 0.1);
+	border: 2px solid var(--healthcare-emergency);
+	border-radius: 8px;
+	padding: 16px;
+	animation: emergencyPulse 2s ease-in-out infinite;
+}
+
+.alert-critical {
+	background-color: rgba(229, 62, 62, 0.05);
+	border-left: 4px solid var(--healthcare-emergency);
+	padding: 12px 16px;
+	background-image: repeating-linear-gradient(
+		45deg,
+		transparent,
+		transparent 10px,
+		rgba(229, 62, 62, 0.05) 10px,
+		rgba(229, 62, 62, 0.05) 20px
+	);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+	:root {
+		--healthcare-primary: #1a4480;
+		--healthcare-text-primary: #000000;
+		--healthcare-background: #ffffff;
+	}
+	
+	.healthcare-input {
+		border-width: 3px;
+	}
+	
+	button {
+		border: 2px solid currentColor;
+	}
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Print styles for medical reports */
+@media print {
+	body {
+		background: white;
+		color: black;
+		font-size: 12pt;
+		line-height: 1.4;
+	}
+	
+	.no-print {
+		display: none !important;
+	}
+	
+	.print-break {
+		page-break-after: always;
+	}
+	
+	.print-avoid-break {
+		page-break-inside: avoid;
+	}
+	
+	.medical-data,
+	.vital-reading,
+	.lab-value {
+		font-family: 'Courier New', monospace;
+	}
+} 
